@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    body{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 20px;
+        background: url("time.jpg") no-repeat;
+        background-size: cover;
+        color: yellowgreen
+    }
+    
+    table, th, tr, td{
+        text-align:left;
+    }
+    td{
+        width: 250px;
+    }
+
+    table {
+        margin: 0 auto;
+    }
+    div{
+        text-align: center
+    }
+
+    #jamDunia{
+        visibility: hidden
+    }
+    
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Jam Dunia</h1>
+        <br><br>
+        <table id="jamDunia">
+            <tr>
+                <td id="0"></td>
+                <td>GMT+0 London, Inggris</td>
+            </tr>
+            <tr>
+                <td id="1"></td>
+                <td>GMT+1 Paris, Perancis</td>
+            </tr>
+            <tr>
+                <td id="2"></td>
+                <td>GMT+2 Istanbul, Turki</td>
+            </tr>
+            <tr>
+                <td id="3"></td>
+                <td>GMT+3 Moskow, Rusia</td>
+            </tr>
+            <tr>
+                <td id="4"></td>
+                <td>GMT+4 Abu Dhabi, UEA</td>
+            </tr>
+            <tr>
+                <td id="5"></td>
+                <td>GMT+5 Islamabad, Pakistan</td>
+            </tr>
+            <tr>
+                <td id="6"></td>
+                <td>GMT+6 Astana, Kazahstan</td>
+            </tr>
+            <tr>
+                <td id="7"></td>
+                <td>GMT+7 Jakarta, Indonesia</td>
+            </tr>
+            <tr>
+                <td id="8"></td>
+                <td>GMT+8 Beijing, China</td>
+            </tr>
+            <tr>
+                <td id="9"></td>
+                <td>GMT+9 Tokyo, Jepang</td>
+            </tr>
+            
+        </table>
+        <p>Selisih antar zona waktu = 1 jam, 1 menit, 1 detik</p>
+    </div>
+
+    <script>
+
+        let jamDunia = () => {
+            document.getElementById("jamDunia").style.visibility = "visible";
+            for(i=0;i<10;i++){
+                let time = new Date(); //assign object Date ke variable time
+                hr = time.getUTCHours(time.setUTCHours(time.getUTCHours()+i)); //assign jam yang udah di set ditambah dengan i ke variable hr
+                min = time.getUTCMinutes(time.setUTCMinutes(time.getUTCMinutes()+i)); //assign menit waktu yang udah di set ditambah dengan i ke variable min
+                sec = time.getUTCHours(time.setUTCHours(time.getUTCSeconds()+i)); //assign detik waktu yang udah di set ditambah dengan i ke variable sec
+                
+                //kondisi kalau angka jam nya kurang dari 10, mau ada 0 di depannya
+                if(hr < 10){ 
+                hr = "0" + hr 
+                }
+                if(min < 10){
+                    min = "0" + min
+                }
+                if(sec < 10){
+                    sec = "0" + sec;   
+                }
+                //print tablenya
+                document.getElementById(i).innerHTML = (`<tr><td> ${hr} : ${min} : ${sec} </td></tr>`);
+            }
+        }
+
+        setInterval(jamDunia,100); //100 supaya langsung jalan saat halaman di reload
+    </script>
+</body>
+</html>
