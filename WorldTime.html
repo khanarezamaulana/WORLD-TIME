@@ -92,7 +92,7 @@
                 let time = new Date(); //assign object Date ke variable time
                 hr = time.getUTCHours(time.setUTCHours(time.getUTCHours()+i)); //assign jam yang udah di set ditambah dengan i ke variable hr
                 min = time.getUTCMinutes(time.setUTCMinutes(time.getUTCMinutes()+i)); //assign menit waktu yang udah di set ditambah dengan i ke variable min
-                sec = time.getUTCHours(time.setUTCHours(time.getUTCSeconds()+i)); //assign detik waktu yang udah di set ditambah dengan i ke variable sec
+                sec = time.getUTCSeconds(time.setUTCSeconds(time.getUTCSeconds()+i)); //assign detik waktu yang udah di set ditambah dengan i ke variable sec
                 
                 //kondisi kalau angka jam nya kurang dari 10, mau ada 0 di depannya
                 if(hr < 10){ 
